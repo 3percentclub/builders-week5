@@ -1,0 +1,95 @@
+# Who Let the Ghost In? 👻
+
+**3percentclub AI Builders · Week 5: Secure AI (keep your app's data private)**
+
+Tonight our agent is a haunted house. Every tool, memory, and search index we added in Weeks 1–4 is a room, and every room is one more door a ghost can float through. We find the doors, then lock them **in code, not in a prompt.**
+
+> The rule of the house: **the model proposes. Your code decides.**
+
+Everything here is fake on purpose: synthetic case notes, a mock model, and a fake outbox (just a Python list). No API key. Nothing really sends.
+
+---
+
+## Setup (2 minutes)
+
+```bash
+git clone https://github.com/3percentclub/builders-week5.git
+cd builders-week5
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+You only need Python 3.10+ and `pytest`.
+
+---
+
+## What's in the house
+
+| Room | Folder | When |
+|---|---|---|
+| Follow the Footprints | `activities/trace_it/` | In class (groups, no code) |
+| The Door With No Lock | `activities/fix_the_tool/` | In class (no LLM needed) |
+| Plant a Ghost, Then Bust It | `lab/` | Final lab (pairs) |
+| Homework | `homework/` | Due **Sun Oct 18, 11:59pm ET** |
+
+---
+
+## Room 1 · Follow the Footprints (no code)
+
+Open `activities/trace_it/data-map.md`. For every box in the architecture, answer the five questions. "Unknown" counts as an answer, and an important one: unknown retention is a finding.
+
+## Room 2 · The Door With No Lock
+
+```bash
+cd activities/fix_the_tool
+pytest -q          # fails until you write safe_execute_tool()
+```
+
+`executor.py` runs whatever the model asks for. Three proposals knock at the door (`proposals.json`). All three are valid JSON. Only one is a friendly trick-or-treater. Install three locks:
+
+1. An explicit allowed-tool list
+2. Argument validation + allowed destinations
+3. Approval bound to the **exact** action (if the recipient changes after approval, it fails)
+
+## Room 3 · Plant a Ghost, Then Bust It (final lab)
+
+One ghost (attacker), one ghostbuster (defender). Switch halfway.
+
+```bash
+cd lab
+
+# 1. A normal question against the clean document (your baseline)
+python app.py "What documents should someone bring to the housing-support appointment?"
+
+# 2. Same question, but the haunted document is on the shelf
+python app.py --haunted "What documents should someone bring to the housing-support appointment?"
+```
+
+Look at the proposed action and the fake outbox. The case note escaped. The model thought it was being compliant.
+
+Now open `policy.py` and bolt the door. Then:
+
+```bash
+pytest tests/      # 2 fail until the door is bolted
+```
+
+**Done when:**
+- The normal program question still works.
+- The malicious action is rejected even when the model proposes it.
+- No synthetic case note appears in the fake outbox.
+
+**Fast pair?** Add schema validation, a PII redaction step before the "model" sees the docs, or a cross-org test (org_a can't read org_b's docs).
+
+---
+
+## Homework
+
+See [`homework/README.md`](homework/README.md). Three parts, built for your hackathon project.
+
+## Key dates
+
+- **Thu Oct 22** · Week 6: Evals, guardrails & system architecture
+- **Fri Oct 23 – Sat Oct 24** · Spooky Civic AI Hackathon: Build Weekend
+- **Sun Oct 25, 2–5pm ET** · Demo Day
+
+Questions? Ask in the cohort Discord.

