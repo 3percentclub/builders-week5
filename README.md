@@ -6,7 +6,15 @@ Tonight our agent is a haunted house. Every tool, memory, and search index we ad
 
 > The rule of the house: **the model proposes. Your code decides.**
 
+## Start here (no install, no key)
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/3percentclub/builders-week5/blob/main/lab.ipynb)
+
+Click the button, then press play on each gray box from top to bottom. You don't need an API key and you don't need to sign up for anything.
+
 Everything here is fake on purpose: synthetic case notes, a mock model, and a fake outbox (just a Python list). No API key. Nothing really sends.
+
+**Provider-agnostic.** There's no AI SDK in this repo: just the Python standard library plus `pytest`. `lab/mock_model.py` stands in for the model (`propose_actions`, `react_to_documents`, `write_answer`) and returns plain JSON tool calls. The security layer (`activities/fix_the_tool/locks.py`, `lab/policy.py`) sits outside the model, so it works with any provider you plug in later (AI Gateway, OpenRouter, Ollama, anything with tool calling). Swap the model, keep the locks.
 
 ---
 

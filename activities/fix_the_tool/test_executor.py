@@ -4,7 +4,7 @@ from pathlib import Path
 import pytest
 
 import executor
-from executor import safe_execute_tool
+from locks import safe_execute_tool
 
 PROPOSALS = json.loads((Path(__file__).parent / "proposals.json").read_text())
 REMINDER, DELETE_ALL, EXFILTRATE = PROPOSALS
