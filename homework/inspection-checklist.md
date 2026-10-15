@@ -4,7 +4,7 @@ Every Spooky Civic AI Hackathon project clears this gate before it presents at D
 
 **Project:**
 **Builder:**
-**Citizen partner:**
+**Citizen partner (optional):**
 
 | # | Check | ✅ / ❌ | Notes |
 |---|---|---|---|

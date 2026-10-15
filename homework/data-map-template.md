@@ -2,7 +2,7 @@
 
 **Team / project:**
 **Builder:**
-**Citizen partner:**
+**Citizen partner (optional):**
 
 ## Sketch the path
 

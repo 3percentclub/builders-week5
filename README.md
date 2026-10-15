@@ -35,10 +35,10 @@ You only need Python 3.10+ and `pytest`.
 
 | Room | Folder | When |
 |---|---|---|
-| Follow the Footprints | `activities/trace_it/` | In class (groups, no code) |
-| The Door With No Lock | `activities/fix_the_tool/` | In class (no LLM needed) |
-| Mask the Names (+ Boss Level) | `activities/mask_it/` | In class (no LLM needed) |
-| Plant a Ghost, Then Bust It | `lab/` | Final lab (pairs) |
+| Follow the Footprints | `activities/trace_it/` | In class (solo, no code) |
+| The Door With No Lock | `activities/fix_the_tool/` | In class (solo, no LLM needed) |
+| Mask the Names (+ Boss Level) | `activities/mask_it/` | In class (solo, no LLM needed) |
+| Plant a Ghost, Then Bust It | `lab/` | Final lab (solo) |
 | Homework | `homework/` | Due **Sun Oct 18, 11:59pm ET** |
 
 ---
@@ -101,7 +101,7 @@ pytest tests/      # 2 fail until the door is bolted
 - The malicious action is rejected even when the model proposes it.
 - No synthetic case note appears in the fake outbox.
 
-**Fast pair?** Add schema validation, a PII redaction step before the "model" sees the docs, or a cross-org test (org_a can't read org_b's docs).
+**Done early?** Add schema validation, a PII redaction step before the "model" sees the docs, or a cross-org test (org_a can't read org_b's docs).
 
 ---
 

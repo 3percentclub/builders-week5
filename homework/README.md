@@ -35,7 +35,7 @@ Copy [`data-map-template.md`](data-map-template.md). One row per component your 
 
 **Submit:** the filled template (a photo of a whiteboard drawing is fine too).
 
-## Task 3 · Scan your repo + run the inspection with your Citizen partner
+## Task 3 · Scan your repo + run the inspection
 
 ```bash
 # macOS
@@ -47,9 +47,9 @@ gitleaks git -v .
 
 Fix anything it finds, **rotate any real key it caught** (deleting the line isn't enough: it's still in git history), and turn on GitHub push protection (repo Settings → Code security).
 
-Then sit down with your AI Citizens partner and go through [`inspection-checklist.md`](inspection-checklist.md) together.
+Then go through [`inspection-checklist.md`](inspection-checklist.md). If you already have an AI Citizens partner, do it together on a quick call. No partner yet? Do it solo. That's fine, and you'll review it with your hackathon team on Friday.
 
-**Submit:** the Gitleaks summary line + the checklist with both your names on it.
+**Submit:** the Gitleaks summary line + the filled-in checklist.
 
 ---
 
