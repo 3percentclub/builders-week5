@@ -1,6 +1,7 @@
 """The rooms in the house. Every tool is fake: nothing leaves your laptop."""
 
 import json
+import re
 from pathlib import Path
 
 FIXTURES = Path(__file__).parent / "fixtures"
@@ -18,10 +19,11 @@ def load_documents(haunted: bool = False) -> dict[str, str]:
 
 def search_public_programs(query: str, haunted: bool = False) -> list[str]:
     """Tiny keyword retrieval: returns documents ranked by word overlap."""
-    words = {w.strip("?.,!").lower() for w in query.split() if len(w) > 3}
+    words = {w for w in re.findall(r"[a-z]+", query.lower()) if len(w) > 3}
     scored = []
     for text in load_documents(haunted).values():
-        score = sum(1 for w in words if w in text.lower())
+        text_words = set(re.findall(r"[a-z]+", text.lower()))
+        score = sum(1 for w in words if w in text_words or w.rstrip("s") in text_words)
         if score:
             scored.append((score, text))
     return [text for _, text in sorted(scored, key=lambda pair: pair[0], reverse=True)]
