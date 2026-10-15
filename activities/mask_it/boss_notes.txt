@@ -1,0 +1,3 @@
+SYNTHETIC. Jordan Example (DEMO-4821) called from a Samsung phone. Call (212) 555-0147. Later jordan texted from 212-555-0199 instead.
+SYNTHETIC. Sam Placeholder moved to Jordanville. Email sam@example.org. Sam and Riley Demo both use the pantry, open since 2019, 300 visits a month.
+SYNTHETIC. Riley asked if Sam can share case DEMO-5310. Reach RILEY at riley.demo@example.org.

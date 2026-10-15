@@ -37,6 +37,7 @@ You only need Python 3.10+ and `pytest`.
 |---|---|---|
 | Follow the Footprints | `activities/trace_it/` | In class (groups, no code) |
 | The Door With No Lock | `activities/fix_the_tool/` | In class (no LLM needed) |
+| Mask the Names (+ Boss Level) | `activities/mask_it/` | In class (no LLM needed) |
 | Plant a Ghost, Then Bust It | `lab/` | Final lab (pairs) |
 | Homework | `homework/` | Due **Sun Oct 18, 11:59pm ET** |
 
@@ -58,6 +59,20 @@ pytest -q          # fails until you write safe_execute_tool()
 1. An explicit allowed-tool list
 2. Argument validation + allowed destinations
 3. Approval bound to the **exact** action (if the recipient changes after approval, it fails)
+
+## Room 2.5 · Mask the Names
+
+```bash
+cd activities/mask_it
+python peek.py            # see what the model and the log would get right now
+pytest -q test_redact.py  # warm-up: fails until you write redact()
+pytest -q test_boss.py    # boss level: fails until you write mask() + unmask()
+```
+
+Case notes are full of names, phones, emails, and case IDs. Every note goes through one choke point in code before it reaches the model or the log. A prompt saying "please don't repeat names" is not a lock.
+
+- **Warm-up (`redact.py`):** swap personal info for labels like `[NAME]` and `[PHONE]`. The hints are in the file.
+- **Boss level (`boss.py`):** use numbered tokens you can reverse, so the model's reply can go back to the right person. Same person = same token (even "jordan" in lowercase), "Samsung" is not Sam, and the vault never leaves your code. No hints.
 
 ## Room 3 · Plant a Ghost, Then Bust It (final lab)
 

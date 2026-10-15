@@ -1,0 +1,3 @@
+SYNTHETIC. Jordan Example (DEMO-4821) needs housing support. Call (212) 555-0147 or email jordan@example.org. Currently staying with a friend.
+SYNTHETIC. Sam Placeholder, case DEMO-5310, asked about the food pantry. Best number: 212-555-0199. Sam prefers texts.
+SYNTHETIC. Riley Demo volunteers Tuesdays. Reach Riley at riley.demo@example.org or 212.555.0123. Backup line +1 212 555 0100.
